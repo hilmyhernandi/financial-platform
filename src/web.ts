@@ -1,0 +1,18 @@
+import express, { Application } from "express";
+import cookieParser from "cookie-parser";
+import { helmetMiddleware } from "./security/helmet.middleware.js";
+import { csrfErrorHandler } from "./security/csrf.middleware.js";
+import { errorHandlers } from "./middleware/error-handlers.middleware.js";
+import sessionConfig from "./config/session.config.js";
+import { router } from "./router/index.js";
+export const web: Application = express();
+web.set("trust proxy", 1);
+web.disable("x-powered-by");
+web.use(express.json());
+web.use(express.urlencoded({ extended: true }));
+web.use(helmetMiddleware);
+web.use(cookieParser());
+web.use(sessionConfig);
+web.use(csrfErrorHandler);
+web.use("/api", router);
+web.use(errorHandlers);
