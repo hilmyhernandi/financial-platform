@@ -12,7 +12,7 @@ export interface IJwtPayload {
   mode: string;
   tokenFamily?: string;
   name?: string;
-  purpose?: "access" | "refresh" | "password-reset";  // Tipe token
+  purpose?: "access" | "refresh" | "password-reset"; 
   iat?: number;
   exp?: number;
 }

@@ -27,7 +27,7 @@ export type ChangePasswordRequest = {
   [key: string]: unknown;
 }
 
-// Tipe data untuk metadata response
+
 export interface ResponseMetadata {
   timestamp?: string;
   requestId?: string;
@@ -36,7 +36,6 @@ export interface ResponseMetadata {
   [key: string]: unknown;
 }
 
-// Tipe data generic untuk response data
 export interface AuthResponseData {
   user?: Omit<User, 'password'>;
   tokens?: {
@@ -49,7 +48,6 @@ export interface AuthResponseData {
   };
 }
 
-// Response interface yang type-safe
 export type AuthResponse = {
   message: string;
   data?: AuthResponseData;
@@ -60,8 +58,7 @@ export type AuthResponse = {
 export interface TokenPayload {
   email: string;
   mode: string;
-  // Tambahan field untuk keamanan
-  iat?: number;  // Issued at
-  exp?: number;  // Expiration time
-  sub?: string;  // Subject (biasanya user ID)
+  iat?: number;  
+  exp?: number; 
+  sub?: string;
 }

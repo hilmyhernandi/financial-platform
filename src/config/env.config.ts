@@ -27,7 +27,6 @@ const isProd = process.env.NODE_ENV === "production";
 export const env = {
   port: process.env.PORT || 3000,
   mode: process.env.NODE_ENV || "production",
-  databases: process.env.MONGODB_URI,
   redis: {
     host: isProd ? process.env.REDIS_HOST! : "localhost",
     port: isProd ? parseInt(process.env.REDIS_PORT!) : 6379,
