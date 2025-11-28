@@ -1,0 +1,10 @@
+{
+  "watch": ["src/event/email"],
+  "ext": "ts,js,json",
+  "exec": "node --loader ts-node/esm --experimental-specifier-resolution=node src/event/email/index.ts",
+  "env": {
+    "NODE_NO_WARNINGS": "1",
+    "TS_NODE_PROJECT": "./tsconfig.dev.json",
+    "TS_NODE_TRANSPILE_ONLY": "true"
+  }
+}
